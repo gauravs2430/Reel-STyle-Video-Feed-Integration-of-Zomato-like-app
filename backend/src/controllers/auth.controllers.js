@@ -194,6 +194,7 @@ function logoutFoodpartner(req, res) {
     })
 }
 
+
 module.exports = {
     registerUser,
     loginUser,
