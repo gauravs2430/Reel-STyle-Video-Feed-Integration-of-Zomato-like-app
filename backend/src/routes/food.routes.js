@@ -5,11 +5,12 @@ const multer = require("multer");
 
 const upload = multer({
     storage:multer.memoryStorage(),
-})
+});
+
 
 const router = express.Router();
 
-// food route and controllers
+// food route and controllers.
 router.post("/addItem" , authFoodMiddleware.authFoodPartnerMiddleware , upload.single("video"), foodControllers.createFood);
 
-module.exports = router ;
+module.exports = router;
