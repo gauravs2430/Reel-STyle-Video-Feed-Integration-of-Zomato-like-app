@@ -58,14 +58,6 @@ async function loginUser(req, res) {
         email
     })
 
-    // if(user)
-    // {
-    //     console.log(user);
-    //     res.json({
-    //         message: "User detected"
-    //     })
-    // }
-
     if (!user) {
         return res.status(400).json({
             message: "Invalid Email or password"

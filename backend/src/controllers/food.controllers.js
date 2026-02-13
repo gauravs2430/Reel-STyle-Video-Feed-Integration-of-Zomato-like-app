@@ -32,9 +32,12 @@ async function createFood(req, res) {
     });
 }
 
+async function getFoodItem(req,res) {
 
+}
 
 module.exports = {
     createFood ,
+    getFoodItem
 
 }

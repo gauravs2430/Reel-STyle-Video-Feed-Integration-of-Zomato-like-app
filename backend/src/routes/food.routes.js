@@ -1,6 +1,6 @@
 const express = require("express");
 const foodControllers = require("../controllers/food.controllers");
-const authFoodMiddleware = require("../middlewares/authFP.middleware");
+const authMiddleware = require("../middlewares/authFP.middleware");
 const multer = require("multer");
 
 const upload = multer({
@@ -10,7 +10,12 @@ const upload = multer({
 
 const router = express.Router();
 
-// food route and controllers.
-router.post("/addItem" , authFoodMiddleware.authFoodPartnerMiddleware , upload.single("video"), foodControllers.createFood);
+// food route and controllers , This is a protected route.
+router.post("/addItem" , authMiddleware.authFoodPartnerMiddleware , upload.single("video"), foodControllers.createFood);
+
+//secure route just like addItem but for a user not for foodpartner.
+router.get('/getItem' , authMiddleware.authUserMiddleware , foodControllers.getFoodItem);
+
+
 
 module.exports = router;
