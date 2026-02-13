@@ -1,27 +1,23 @@
 const ImageKit = require("imagekit");
 
-
-
 const imagekit = new ImageKit({
-    publickey: process.env.IMAGEKIT_PUBLIC_KEY,
+    publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
     privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-    urlendpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-    
+    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
-// console.log(response);
+// console.log("Upload type:", typeof imagekit.upload);
 
-async function fileUpload(file,filename)
-{
+async function fileUpload(file, filename) {
+
     const result = await imagekit.upload({
-        file: file ,
-        filename: filename ,
+        file: file.toString("base64"),
+        fileName: filename,
     });
 
-    return result ;
-};
+    return result;
+}
 
 module.exports = {
-    fileUpload ,
-
-}
+    fileUpload,
+};

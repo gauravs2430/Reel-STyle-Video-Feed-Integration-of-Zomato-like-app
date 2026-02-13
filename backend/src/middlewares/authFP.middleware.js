@@ -9,7 +9,7 @@ async function authFoodPartnerMiddleware(req , res , next) {
     if(!token){
         return res.status(401).json({
             message: "Please Login first !!"
-        })
+        });
     };
 
     try{

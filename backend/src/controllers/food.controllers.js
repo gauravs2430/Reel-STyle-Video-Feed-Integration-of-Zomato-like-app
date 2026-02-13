@@ -8,11 +8,6 @@ const { v4:uuid } = require("uuid");
 
 async function createFood(req, res) {
 
-    const foodpartner = req.foodpartner;
-
-    console.log("Body:", req.body);
-    console.log("File:", req.file);
-
     if (!req.file) {
         return res.status(400).json({
             message: "Image file is required"
@@ -24,10 +19,16 @@ async function createFood(req, res) {
         uuid()
     );
 
-    console.log(fileUploadResult);
+    const foodItem = await foodModel.create({
+        foodname: req.body.foodname ,
+        description: req.body.description ,
+        video: fileUploadResult.url,
+        foodpartner: req.foodpartner._id 
+    })
 
-    return res.status(200).json({
-        message: "Executed"
+    return res.status(201).json({
+        message: "Food created successfully" ,
+        food: foodItem  
     });
 }
 
