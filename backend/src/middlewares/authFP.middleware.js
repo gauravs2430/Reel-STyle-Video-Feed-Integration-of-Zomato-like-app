@@ -28,7 +28,7 @@ async function authFoodPartnerMiddleware(req, res, next) {
 
 async function authUserMiddleware(req, res, next) {
 
-    const token = req.cookie.token;
+    const token = req.cookies.token;
 
     if (!token) {
         return res.status(400).json({
@@ -42,7 +42,6 @@ async function authUserMiddleware(req, res, next) {
 
         req.user = user;
         next();
-
     }
     catch (err) {
         return res.status(400).json({

@@ -34,6 +34,13 @@ async function createFood(req, res) {
 
 async function getFoodItem(req,res) {
 
+    const foodItem = await foofModel.find({
+
+    });
+
+    console.log(foodItem);
+    return res.status(200);
+    
 }
 
 module.exports = {
