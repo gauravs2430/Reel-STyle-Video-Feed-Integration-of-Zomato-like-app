@@ -1,0 +1,14 @@
+/api/auth/
+
+    /user/register -> user register form 
+    /user/login -> user login form 
+    /user/logout -> logout button 
+
+    /foodpartner/register -> foodpartner register form
+    /foodpartner/login -> foodpartner login form 
+    /foodpartner/logout -> logout button
+
+/api/food
+
+    /addItem 
+    /getItem 
