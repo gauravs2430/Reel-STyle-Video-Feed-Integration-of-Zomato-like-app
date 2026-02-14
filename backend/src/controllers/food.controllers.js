@@ -34,13 +34,14 @@ async function createFood(req, res) {
 
 async function getFoodItem(req,res) {
 
-    const foodItem = await foofModel.find({
-
+    const foodItem = await foodModel.find({
     });
 
-    console.log(foodItem);
-    return res.status(200);
-    
+    return res.status(200).json({
+        message: "FoodItems" ,
+        foodItem 
+    })
+
 }
 
 module.exports = {
